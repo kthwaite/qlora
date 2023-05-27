@@ -35,5 +35,5 @@ class SavePeftModelCallback(transformers.TrainerCallback):
             with open(fname, "a"):
                 os.utime(fname, times)
 
-        touch(join(args.output_dir, "completed"))
+        touch(os.path.join(args.output_dir, "completed"))
         self.save_model(args, state, kwargs)
