@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import Optional
+from typing import Literal, Optional, Union
 
 import transformers
 
@@ -45,6 +45,9 @@ class DataArguments:
         metadata={
             "help": "Maximum target sequence length. Sequences will be right padded (and possibly truncated)."
         },
+    )
+    dataset_type: Literal["text", "instruct"] = field(
+        default="text", metadata={"help": "Type of dataset"}
     )
     dataset: str = field(
         default="alpaca",
